@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="./js/index.js"></script>
+    
+    <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyC2WCo7faHPvvcahbn06o_7DeI8GJrnSPU",
+        authDomain: "databasesprojet.firebaseapp.com",
+        projectId: "databasesprojet",
+        storageBucket: "databasesprojet.appspot.com",
+        messagingSenderId: "525087513544",
+        appId: "1:525087513544:web:c77e75414e6c7cd1503efd",
+        measurementId: "G-F79PVDFRJT"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    var db = firebase.firestore(); 
+function enviar(){
+    let usuario = {};
+    let name = document.getElementById("txtName").value;
+    let email = document.getElementById("txtEmail").value;
+    let senha = document.getElementById("txtSenha").value;
+    usuario.Name = name; 
+    usuario.Email = email; 
+    usuario.Senha = senha; 
+
+    db.collection("usuario").add(usuario)
+    .then((docRef) => {
+    console.log("Document written with ID: ", docRef.id);
+    alert(`Dados enviados ao banco, obrigado${name}!`)
+    })
+    .catch((error) => {
+    console.error("Error adding document: ", error);
+    });
+}
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+    <title>Cadastrar usuário</title>
+</head>
+<body>
+    <div class="content">  
+        <div class="topo">
+            <h1>Bem vindo!</h1>
+            <h2>Venha se cadastre em nossa aplicação!</h2>
+        </div>  
+        <main class="divMain">
+            <h1>Preencha todos os campos!</h1>
+            <div class="dados">
+                <input type="text" id="txtName" placeholder="Name... Fulano">
+                <input type="text" id="txtEmail" placeholder="Email... @gmal.com">
+                <input type="password" id="txtSenha" placeholder="Senha... 123">
+                <input type="button" value="Enviar" onclick="enviar()"> 
+            </div>
+        </main>
+    </div>
+</body>
+</html>

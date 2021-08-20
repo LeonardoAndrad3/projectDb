@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.content{
+    /* border: 1px rgb(255, 0, 0) solid; */
+    background-color: slategray;
+    width: auto;
+    height: 770px;
+}
+
+.topo h1, h2{
+    text-align: center;
+    color: white;
+    text-shadow: 0px 5px 5px rgb(0, 0, 0);
+    animation: go-back 1s alternate;
+    font-style: bolder;
+}
+.topo{
+    background-image: url('../icons/schoolThemes.png');
+    height: 80px;
+    width: auto;
+}
+
+.divMain{
+    display: block;
+    background-color: rgb(255, 255, 255);
+    margin: 20px auto;
+    border-radius: 10px;
+    /* border: 1px rgb(255, 0, 0) solid; */
+    box-shadow: 2px 1px 3px black;
+    width: 550px;
+    height: 350px;
+}
+
+.divMain h1{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    margin-bottom: 25px;
+}
+
+.dados{
+    align-items: center;
+    margin: 0 auto;
+    /* border: 1px rgb(255, 0, 0) solid; */
+    width: 450px;
+    height: 280px;
+}
+
+.dados input[type="text"], input[type="password"]{
+    display: block;
+    margin: 25px auto;
+    width: 350px;
+    height: 35px;
+    border: 1 black groove;
+}
+
+.dados input[type="button"]{
+    display: block;
+    margin: 25px auto;
+    width: 150px;
+    height: 30px;
+    background-color: rgb(104, 104, 104);
+    color: white;
+    transition: 0.3s;
+}
+.divMain input:focus{
+    outline: 0;
+}
+
+.divMain input[type="button"]:hover{
+    background-color: rgb(41, 41, 41);
+    height: 35px;
+    width: 160px;
+    transition: 0.3s;
+}
+
+@keyframes go-back{
+    0%{
+        transform: translateX(50px);
+        transform: translateY(-150px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
