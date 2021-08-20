@@ -44,10 +44,11 @@ function enviar(){
     db.collection("usuario").add(usuario)
     .then((docRef) => {
     console.log("Document written with ID: ", docRef.id);
-    alert(`Dados enviados ao banco, obrigado${name}!`)
+    alert(`Dados enviados ao banco, obrigado ${name}!`)
     })
     .catch((error) => {
     console.error("Error adding document: ", error);
+    alert(`Ops ${name} ocorreu um erro, tente mais tarde!`)
     });
 }
     </script>
